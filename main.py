@@ -47,7 +47,7 @@ class MyWidget(QMainWindow):
             sys.exit(1)
 
         # Запишем полученное изображение в файл.
-        if params['type'] != 'sat':
+        if 'sat' not in params['type']:
             self.map_file = "map.png"
         else:
             self.map_file = "map.jpg"
@@ -63,7 +63,7 @@ class MyWidget(QMainWindow):
         elif self.but_sat.isChecked():
             params['type'] = 'sat'
         else:
-            params['type'] = 'skl'
+            params['type'] = 'sat,skl'
         print(params)
         self.get_image()
         print(self.map_file)
